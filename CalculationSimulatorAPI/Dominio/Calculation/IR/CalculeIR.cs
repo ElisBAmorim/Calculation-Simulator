@@ -4,13 +4,21 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
 {
     public class CalculeIR : ICalculeIR
     {
+
+        /// <summary>
+        /// Taxas de IR conforme a quantidade de meses
+        /// </summary>
         protected const decimal TaxRateUp6 = 22.5M / 100;
         protected const decimal TaxRateUp12 = 20M / 100;
         protected const decimal TaxRateUp24 = 17.5M / 100;
         protected const decimal TaxRateThan24 = 15M / 100;
-       
-        private decimal _initialValue;
 
+        private readonly decimal _initialValue;
+
+        /// <summary>
+        /// contrutor da classe
+        /// </summary>
+        /// <param name="initialValue"> valor inicial de entrada </param>
         public CalculeIR(decimal initialValue)
         {
             _initialValue = initialValue;
@@ -19,9 +27,8 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         /// <summary>
         /// Calcula o Imposto de Renda com base no ganho de capital.
         /// </summary>
-        /// <param name="initialValue"></param>
-        /// <param name="finalValue"></param>
-        /// <param name="months"></param>
+        /// <param name="finalValue"> valor final do calculo</param>
+        /// <param name="months">número de meses</param>
         /// <returns></returns>
         public decimal CalculateIncomeTax(decimal finalValue, int months)
         {
@@ -32,24 +39,24 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         /// <summary>
         /// Obtém a taxa de imposto com base no período de investimento.
         /// </summary>
-        /// <param name="months"></param>
+        /// <param name="months">número de meses</param>
         /// <returns></returns>
-        private decimal GetTaxRate(int months)
+        private static decimal GetTaxRate(int months)
         {
-            switch (months)
+            return months switch
             {
-                case <= 6: return TaxRateUp6;
-                case <= 12: return TaxRateUp12;
-                case <= 24: return TaxRateUp24;
-                default: return TaxRateThan24;
-            }
+                <= 6 => TaxRateUp6,
+                <= 12 => TaxRateUp12,
+                <= 24 => TaxRateUp24,
+                _ => TaxRateThan24,
+            };
         }
 
         /// <summary>
         /// Calcula o valor do Imposto de Renda.
         /// </summary>
-        /// <param name="grossProfit"></param>
-        /// <param name="taxRateIR"></param>
+        /// <param name="grossProfit">lucro bruto </param>
+        /// <param name="taxRateIR"> Taxa do IR </param>
         /// <returns></returns>
         public decimal CalculateValueRateIR(decimal grossProfit, decimal taxRateIR)
         {

@@ -10,6 +10,11 @@ namespace CalculationSimulatorAPI.Infra.IoC
 {
     public static class DependencyInjection
     {
+        /// <summary>
+        /// Registra os serviços no contêiner de injeção de dependência.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<ICalculeteService, CalculeteService>();
@@ -17,6 +22,11 @@ namespace CalculationSimulatorAPI.Infra.IoC
             return services;
         }
 
+        /// <summary>
+        /// Configura o Swagger para gerar a documentação da API.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
@@ -30,6 +40,11 @@ namespace CalculationSimulatorAPI.Infra.IoC
             return services;
         }
 
+        /// <summary>
+        ///  Registra os validadores de entrada usando o FluentValidation.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
             services.AddFluentValidationAutoValidation();         

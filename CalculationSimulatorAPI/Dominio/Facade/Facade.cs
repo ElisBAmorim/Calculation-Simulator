@@ -1,37 +1,40 @@
-﻿using CalculationSimulatorAPI.Dominio.Calculation.CDB;
-using CalculationSimulatorAPI.Dominio.Calculation.IR;
-using CalculationSimulatorAPI.Dominio.Interfaces;
+﻿using CalculationSimulatorAPI.Dominio.Interfaces;
 
 namespace CalculationSimulatorAPI.Dominio.Facade
 {
     public class Facade
     {
-        private ICalculeCDB _CalculeCDB;
-        private ICalculeIR _CalculeIR;
+        private readonly ICalculeCDB _calculatorCDB;
+        private readonly ICalculeIR _calculatorIR;
+        private readonly int _numberOfMonths;
 
-        private decimal _valueInitial;
-        private int _numberOfMonths;
+        public decimal ResultGross { get; private set; }
+        public decimal ResultNet { get; private set; }
 
-        public decimal resultGross { get; set; }
-        public decimal resultNet { get; set; }        
-
-
-        public Facade(decimal valueInitial, int numberOfMonths)
-        {
-            _valueInitial = valueInitial;
+        /// <summary>
+        /// Inicialização do facade
+        /// </summary>
+        /// <param name="numberOfMonths"> número de meses </param>
+        /// <param name="calculeCDB"> instancia da classe CalculeCDB </param>
+        /// <param name="calculeIR"> instancia da classe CalculeIR </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Facade(int numberOfMonths, ICalculeCDB calculeCDB, ICalculeIR calculeIR )
+        {            
             _numberOfMonths = numberOfMonths;
-
-            _CalculeCDB = new CalculeCDB(_valueInitial);
-            _CalculeIR =  new CalculeIR(_valueInitial);
+            _calculatorCDB = calculeCDB ?? throw new ArgumentNullException(nameof(calculeCDB), "The instance of ICalculeCBD cannot be null.");
+            _calculatorIR = calculeIR ?? throw new ArgumentNullException(nameof(calculeIR), "The instance of ICalculeIR cannot be null.");           
         }
 
-        public void CalculateValueCDB()
+        /// <summary>
+        /// Calcular os valores finais do CDB com e sem IR
+        /// </summary>
+        public void CalculateValuesCDB()
         {         
-            var valorFinalCDB = _CalculeCDB.CalculateValueCDB(_numberOfMonths);
-            var valorIf = _CalculeIR.CalculateIncomeTax(valorFinalCDB, _numberOfMonths);
+            var cdbFinalValue = _calculatorCDB.CalculateValueCDB(_numberOfMonths);
+            var incomeTaxValue = _calculatorIR.CalculateIncomeTax(cdbFinalValue, _numberOfMonths);
 
-            resultGross = valorFinalCDB;
-            resultNet = valorFinalCDB - valorIf;
+            ResultGross = cdbFinalValue;
+            ResultNet = cdbFinalValue - incomeTaxValue;
         }
     }
 }

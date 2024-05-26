@@ -8,6 +8,11 @@ namespace CalculationSimulatorAPI.Infrastructure.Validators
         const string messagePositiveValue = "Only positive values are valid";
         const string messageNumberMonths = "Invalid value, the number of months must be greater than 1.";
 
+        /// <summary>
+        /// Realiza a validação dos valores de request 
+        /// ApplicationValue : Somente valores positivos são válidos.
+        /// NumberOfMonths: o número de meses deve ser maior que 1.
+        /// </summary>
         public CalculeteValidator()
         {
             RuleFor(request => request.ApplicationValue)

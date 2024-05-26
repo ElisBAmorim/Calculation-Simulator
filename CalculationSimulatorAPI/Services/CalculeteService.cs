@@ -1,5 +1,7 @@
 ﻿using CalculationSimulatorAPI.Aplication.Controllers.V1;
 using CalculationSimulatorAPI.Application.Dtos;
+using CalculationSimulatorAPI.Dominio.Calculation.CDB;
+using CalculationSimulatorAPI.Dominio.Calculation.IR;
 using CalculationSimulatorAPI.Dominio.Facade;
 using CalculationSimulatorAPI.Dominio.Interfaces;
 
@@ -15,11 +17,13 @@ namespace CalculationSimulatorAPI.Services
 
         public Task<CalculateResponseDto> CalculeteCDB(CalculateResquestDto request)
         {
-            Facade facadeCBD = new(request.ApplicationValue,request.NumberOfMonths);
-            facadeCBD.CalculateValueCDB();
-          
+            _logger.LogInformation("Initialization of the service for the calculation of the CDB");
 
-            return Task.FromResult(new CalculateResponseDto(facadeCBD.resultGross, facadeCBD.resultNet));
+            Facade facadeCBD = new(request.NumberOfMonths, new CalculeCDB(request.ApplicationValue), new CalculeIR(request.ApplicationValue));
+            facadeCBD.CalculateValuesCDB();
+          
+            
+            return Task.FromResult(new CalculateResponseDto(facadeCBD.ResultGross, facadeCBD.ResultNet));
         }
     }
 }
