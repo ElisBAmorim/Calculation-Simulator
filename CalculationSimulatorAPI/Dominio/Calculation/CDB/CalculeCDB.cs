@@ -5,7 +5,11 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
 {
     public class CalculeCDB : CalculationBase, ICalculeCDB
     {
-        public CalculeCDB(decimal initialValue) : base(initialValue) { }
+        private readonly ILogger _logger;
+        public CalculeCDB(ILogger logger, decimal initialValue) : base(initialValue)
+        {
+            _logger = logger;
+        }
 
         /// <summary>
         /// Calcula o valor final do CDB após um determinado número de meses.
@@ -14,12 +18,16 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
         /// <returns></returns>
         public decimal CalculateValueCDB(int months)
         {
-            Decimal finalValue = InitialValue;
-            Console.WriteLine($"Value inicial: {InitialValue}");
+            decimal finalValue = InitialValue;
+
+            _logger.LogDebug("Valor Inicial: {InitialValue}", InitialValue);
+
             for (int i = 0; i < months; i++)
             {
                 finalValue = CalculateFinalValue(finalValue);
                 finalValue = Math.Round(finalValue, 10);
+
+                _logger.LogDebug("Novo Valor: {finalValue} - Mes: {mes}", finalValue, i);
             }
 
             return finalValue;

@@ -1,4 +1,5 @@
 ﻿using CalculationSimulatorAPI.Dominio.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace CalculationSimulatorAPI.Dominio.Calculation.IR
 {
@@ -12,16 +13,18 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         protected const decimal TaxRateUp12 = 20M / 100;
         protected const decimal TaxRateUp24 = 17.5M / 100;
         protected const decimal TaxRateThan24 = 15M / 100;
-
+      
+        private readonly ILogger _logger;
         private readonly decimal _initialValue;
 
         /// <summary>
         /// contrutor da classe
         /// </summary>
         /// <param name="initialValue"> valor inicial de entrada </param>
-        public CalculeIR(decimal initialValue)
+        public CalculeIR(ILogger logger, decimal initialValue)
         {
             _initialValue = initialValue;
+            _logger = logger;
         }
 
         /// <summary>
@@ -33,6 +36,9 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         public decimal CalculateIncomeTax(decimal finalValue, int months)
         {
             decimal grossProfit = finalValue - _initialValue;
+                      
+            _logger.LogDebug("Lucro bruto: {grossProfit}", grossProfit);
+
             return CalculateValueRateIR(grossProfit, GetTaxRate(months));
         }
 
@@ -60,6 +66,7 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         /// <returns></returns>
         public decimal CalculateValueRateIR(decimal grossProfit, decimal taxRateIR)
         {
+            _logger.LogDebug("Valor da Taxa IR: {TaxaIR}", grossProfit * taxRateIR);
             return grossProfit * taxRateIR;
         }
 

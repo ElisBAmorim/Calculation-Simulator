@@ -6,9 +6,8 @@
         /// Taxas CDI e TB
         /// </summary>
         protected const decimal RateCDI = 0.9M / 100;
-        protected const decimal RateTB = 108M / 100;
-        
-        protected decimal TaxaCombinada;
+        protected const decimal RateTB = 108M / 100;        
+       
         /// <summary>
         /// Valor inicial para o cálculo
         /// </summary>
@@ -20,8 +19,7 @@
         /// <param name="initialValue"></param>
         public CalculationBase(decimal initialValue)
         {
-            InitialValue = initialValue;
-            TaxaCombinada = 1 + RateCDI * RateTB;
+            InitialValue = initialValue;         
         }
 
         /// <summary>
@@ -30,9 +28,8 @@
         /// <param name="valueInput"> valor de entrada </param>
         /// <returns></returns>
         public decimal CalculateFinalValue(Decimal valueInput)
-        {
-            Console.WriteLine($" inicial: {valueInput} - ({valueInput * (1 + RateCDI * RateTB)})");
-            return valueInput * TaxaCombinada;
+        {            
+            return valueInput * (1 + (RateCDI * RateTB)); 
         }
     }
 }
