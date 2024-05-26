@@ -11,9 +11,9 @@
             InitialValue = initialValue;           
         }             
 
-        public decimal CalculateFinalValue()
+        public decimal CalculateFinalValue(decimal valueInput)
         {
-            return InitialValue * (1 + (RateCDI * RateTB));           
+            return valueInput * (1 + (RateCDI * RateTB));           
         }
     }
 }

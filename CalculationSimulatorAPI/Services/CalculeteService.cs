@@ -20,7 +20,7 @@ namespace CalculationSimulatorAPI.Services
             ICalculeCDB calculadoraCDB = new CalculeCDB(calculateResquest.ApplicationValue);
 
 
-            return calculadoraCDB.ValueCalculationCDB().ToString();
+            return calculadoraCDB.ValueCalculationCDB(calculateResquest.NumberOfMonths).ToString();
         }
     }
 }

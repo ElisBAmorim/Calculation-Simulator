@@ -7,10 +7,17 @@ namespace CalculationSimulatorAPI.Dominio.Calculation
         public CalculeCDB(decimal initialValue) : base(initialValue)
         {           
         }
-
-        public decimal ValueCalculationCDB()
+  
+        public decimal ValueCalculationCDB(int months)
         {
-            return base.CalculateFinalValue();
+            decimal finalValue = InitialValue;
+
+            for (int i = 0; i < months; i++)
+            {
+                finalValue = base.CalculateFinalValue(finalValue);
+            }
+
+            return finalValue;
         }
 
     }
