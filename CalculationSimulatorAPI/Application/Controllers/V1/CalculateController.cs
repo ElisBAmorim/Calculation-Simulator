@@ -16,7 +16,7 @@ namespace CalculationSimulatorAPI.Aplication.Controllers.V1
         }
 
         [HttpPost("/CDB")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CalculateResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post([FromBody] CalculateResquestDto calculateResquest)

@@ -2,6 +2,6 @@
 {
     public interface ICalculeCDB
     {
-        decimal ValueCalculationCDB(int months);
+        decimal CalculateValueCDB(int months);
     }
 }
