@@ -1,4 +1,5 @@
 ﻿using CalculationSimulatorAPI.Aplication.Controllers.V1;
+using CalculationSimulatorAPI.Application.Dtos;
 using CalculationSimulatorAPI.Dominio.Interfaces;
 
 namespace CalculationSimulatorAPI.Services
@@ -11,10 +12,10 @@ namespace CalculationSimulatorAPI.Services
             _logger = logger;
         }
 
-        public async Task<string> CalculeteCDB()
+        public async Task<string> CalculeteCDB(CalculateResquestDto calculateResquest)
         {
             await Task.Delay(1000);
-            return "ok";
+            return string.Format(calculateResquest.ApplicationValue.ToString() + calculateResquest.NumberOfMonths.ToString());
         }
     }
 }

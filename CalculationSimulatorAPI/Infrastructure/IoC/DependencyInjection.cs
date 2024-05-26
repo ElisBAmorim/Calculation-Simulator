@@ -1,5 +1,8 @@
-﻿using CalculationSimulatorAPI.Dominio.Interfaces;
+﻿using CalculationSimulatorAPI.Application.Dtos;
+using CalculationSimulatorAPI.Dominio.Interfaces;
 using CalculationSimulatorAPI.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -24,6 +27,15 @@ namespace CalculationSimulatorAPI.Infra.IoC
                     Version = "v1",
                 });
             });          
+            return services;
+        }
+
+        public static IServiceCollection AddValidators(this IServiceCollection services)
+        {
+            services.AddFluentValidationAutoValidation();         
+
+            services.AddValidatorsFromAssemblyContaining<CalculateResquestDto>();
+
             return services;
         }
     }

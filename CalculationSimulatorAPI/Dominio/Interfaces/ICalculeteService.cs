@@ -1,7 +1,9 @@
-﻿namespace CalculationSimulatorAPI.Dominio.Interfaces
+﻿using CalculationSimulatorAPI.Application.Dtos;
+
+namespace CalculationSimulatorAPI.Dominio.Interfaces
 {
     public interface ICalculeteService
     {
-        Task<string> CalculeteCDB();
+        Task<string> CalculeteCDB(CalculateResquestDto calculateResquest);
     }
 }

@@ -1,4 +1,5 @@
-﻿using CalculationSimulatorAPI.Dominio.Interfaces;
+﻿using CalculationSimulatorAPI.Application.Dtos;
+using CalculationSimulatorAPI.Dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CalculationSimulatorAPI.Aplication.Controllers.V1
@@ -14,15 +15,14 @@ namespace CalculationSimulatorAPI.Aplication.Controllers.V1
             _calculateService = calculateService;
         }
 
-        [HttpGet("/CDB")]
-        [ProducesResponseType(typeof(string),StatusCodes.Status200OK)]
+        [HttpPost("/CDB")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetTeste()
+        public async Task<IActionResult> Post([FromBody] CalculateResquestDto calculateResquest)
         {
-            var result = await _calculateService.CalculeteCDB();
+            var result = await _calculateService.CalculeteCDB(calculateResquest);
             return Ok(result);
-
         }
 
     }
