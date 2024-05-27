@@ -14,7 +14,7 @@ namespace CalculationSimulatorAPI.Services
             _logger = logger.CreateLogger<CalculeteService>();
         }
 
-        public Task<CalculateResponseDto> CalculeteCDB(CalculateResquestDto request)
+        public Task<CalculateResponseDto> CalculeteCDB(CalculateResquestDto request, CancellationToken cancellation)
         {
             _logger.LogInformation("Initialization of the service for the calculation of the CDB");
 

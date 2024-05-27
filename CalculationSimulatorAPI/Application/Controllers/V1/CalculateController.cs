@@ -19,9 +19,9 @@ namespace CalculationSimulatorAPI.Aplication.Controllers.V1
         [ProducesResponseType(typeof(CalculateResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Post([FromBody] CalculateResquestDto calculateResquest)
+        public async Task<IActionResult> Post([FromBody] CalculateResquestDto calculateResquest, CancellationToken cancellation)
         {
-            var result = await _calculateService.CalculeteCDB(calculateResquest);
+            var result = await _calculateService.CalculeteCDB(calculateResquest, cancellation);
             return Ok(result);
         }
 
