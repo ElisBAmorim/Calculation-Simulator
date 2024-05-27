@@ -37,7 +37,7 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         {
             decimal grossProfit = finalValue - _initialValue;
                       
-            _logger.LogDebug("Lucro bruto: {grossProfit}", grossProfit);
+            _logger.LogDebug("Lucro bruto: {GrossProfit}", grossProfit);
 
             return CalculateValueRateIR(grossProfit, GetTaxRate(months));
         }

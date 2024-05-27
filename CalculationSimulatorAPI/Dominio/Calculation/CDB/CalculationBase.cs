@@ -17,7 +17,7 @@
         ///  Inicializa uma nova instância da classe CalculationBase com o valor inicial especificado.
         /// </summary>
         /// <param name="initialValue"></param>
-        public CalculationBase(decimal initialValue)
+        protected CalculationBase(decimal initialValue)
         {
             InitialValue = initialValue;         
         }

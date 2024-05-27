@@ -4,8 +4,8 @@
     {
         public CalculateResponseDto(decimal grossValue, decimal netValue)
         {
-            GrossValue = grossValue.ToString("F2"); ;
-            NetValue = netValue.ToString("F2"); ;
+            GrossValue = grossValue.ToString("F2");
+            NetValue = netValue.ToString("F2");
         }
 
         public string GrossValue { get; set; }

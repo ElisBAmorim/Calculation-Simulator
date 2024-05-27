@@ -3,10 +3,10 @@ using System;
 
 namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
 {
-    public class CalculeCDB : CalculationBase, ICalculeCDB
+    public class CalculeCdb : CalculationBase, ICalculeCdb
     {
         private readonly ILogger _logger;
-        public CalculeCDB(ILogger logger, decimal initialValue) : base(initialValue)
+        public CalculeCdb(ILogger logger, decimal initialValue) : base(initialValue)
         {
             _logger = logger;
         }
@@ -26,7 +26,7 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
             {
                 finalValue = Math.Round(CalculateFinalValue(finalValue),6, MidpointRounding.ToEven);              
 
-                _logger.LogDebug("Novo Valor: {finalValue} - Mes: {mes}", finalValue, i);
+                _logger.LogDebug("Novo valor: {FinalValue} - Mes: {Mes}", finalValue, i);
             }
 
             return finalValue;

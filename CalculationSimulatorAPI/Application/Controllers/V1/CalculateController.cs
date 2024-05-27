@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CalculationSimulatorAPI.Aplication.Controllers.V1
 {
     [ApiController]
-    [Route("/v1/[controller]")]
+    [Route("/v1/[controller]/")]
     public class CalculateController : ControllerBase
     {
         private readonly ICalculeteService _calculateService;
@@ -15,7 +15,7 @@ namespace CalculationSimulatorAPI.Aplication.Controllers.V1
             _calculateService = calculateService;
         }
 
-        [HttpPost("/CDB")]
+        [HttpPost("CDB")]
         [ProducesResponseType(typeof(CalculateResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]

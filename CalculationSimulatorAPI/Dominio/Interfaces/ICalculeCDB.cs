@@ -1,6 +1,6 @@
 ﻿namespace CalculationSimulatorAPI.Dominio.Interfaces
 {
-    public interface ICalculeCDB
+    public interface ICalculeCdb
     {
         decimal CalculateValueCDB(int months);
     }
