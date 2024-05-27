@@ -24,8 +24,7 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
 
             for (int i = 0; i < months; i++)
             {
-                finalValue = CalculateFinalValue(finalValue);
-                finalValue = Math.Round(finalValue, 10);
+                finalValue = Math.Round(CalculateFinalValue(finalValue),6, MidpointRounding.ToEven);              
 
                 _logger.LogDebug("Novo Valor: {finalValue} - Mes: {mes}", finalValue, i);
             }
