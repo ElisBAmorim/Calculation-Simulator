@@ -2,7 +2,7 @@
 
 namespace CalculationSimulatorAPI.Dominio.Facade
 {
-    public class Facade
+    public class FacadeCalculation
     {
         private readonly ILogger _logger;
         private readonly ICalculeCdb _calculatorCDB;
@@ -19,7 +19,7 @@ namespace CalculationSimulatorAPI.Dominio.Facade
         /// <param name="calculeCDB"> instancia da classe CalculeCDB </param>
         /// <param name="calculeIR"> instancia da classe CalculeIR </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Facade(int numberOfMonths, ICalculeCdb calculeCDB, ICalculeIR calculeIR, ILogger logger)
+        public FacadeCalculation(int numberOfMonths, ICalculeCdb calculeCDB, ICalculeIR calculeIR, ILogger logger)
         {
             _logger = logger;
             _numberOfMonths = numberOfMonths;

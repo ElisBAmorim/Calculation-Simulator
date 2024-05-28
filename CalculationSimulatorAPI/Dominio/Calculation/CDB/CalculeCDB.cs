@@ -1,5 +1,4 @@
 ﻿using CalculationSimulatorAPI.Dominio.Interfaces;
-using System;
 
 namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
 {

@@ -1,5 +1,4 @@
 ﻿using CalculationSimulatorAPI.Dominio.Interfaces;
-using Microsoft.Extensions.Logging;
 
 namespace CalculationSimulatorAPI.Dominio.Calculation.IR
 {

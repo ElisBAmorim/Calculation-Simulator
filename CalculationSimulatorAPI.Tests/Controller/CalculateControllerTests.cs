@@ -29,7 +29,7 @@ namespace CalculationSimulatorAPI.Tests.Controller
 
 
             //Act 
-            var result = await _calculateController.Post(new CalculateResquestDto(), new CancellationToken());
+            var result = await _calculateController.Post(new CalculateResquestDto(1000,12), new CancellationToken());
 
             //Assert            
             ((ObjectResult)result).StatusCode.Equals(HttpStatusCode.OK);

@@ -18,7 +18,7 @@ namespace CalculationSimulatorAPI.Services
         {
             _logger.LogInformation("Initialization of the service for the calculation of the CDB");
 
-            Facade facadeCBD = new(request.NumberOfMonths, 
+            FacadeCalculation facadeCBD = new(request.NumberOfMonths, 
                 new CalculeCdb(_logger, request.ApplicationValue), 
                 new CalculeIR(_logger, request.ApplicationValue), 
                 _logger);
