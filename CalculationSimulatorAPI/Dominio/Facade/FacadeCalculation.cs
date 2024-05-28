@@ -15,17 +15,16 @@ namespace CalculationSimulatorAPI.Dominio.Facade
         /// <summary>
         /// Inicialização do facade
         /// </summary>
-        /// <param name="numberOfMonths"> número de meses </param>
-        /// <param name="calculeCDB"> instancia da classe CalculeCDB </param>
-        /// <param name="calculeIR"> instancia da classe CalculeIR </param>
-        /// <exception cref="ArgumentNullException"></exception>
+        /// <param name="numberOfMonths"></param>
+        /// <param name="calculeCDB"></param>
+        /// <param name="calculeIR"></param>
+        /// <param name="logger"></param>
         public FacadeCalculation(int numberOfMonths, ICalculeCdb calculeCDB, ICalculeIR calculeIR, ILogger logger)
         {
             _logger = logger;
             _numberOfMonths = numberOfMonths;
-            _calculatorCDB = calculeCDB ?? throw new ArgumentNullException(nameof(calculeCDB), "The instance of ICalculeCBD cannot be null.");
-            _calculatorIR = calculeIR ?? throw new ArgumentNullException(nameof(calculeIR), "The instance of ICalculeIR cannot be null.");
-          
+            _calculatorCDB = calculeCDB;
+            _calculatorIR = calculeIR;           
         }
 
         /// <summary>
