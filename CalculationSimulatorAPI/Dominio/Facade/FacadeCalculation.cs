@@ -1,4 +1,7 @@
-﻿using CalculationSimulatorAPI.Dominio.Interfaces;
+﻿using CalculationSimulatorAPI.Dominio.Calculation.CDB;
+using CalculationSimulatorAPI.Dominio.Calculation.IR;
+using CalculationSimulatorAPI.Dominio.Interfaces;
+using CalculationSimulatorAPI.Dominio.Model;
 
 namespace CalculationSimulatorAPI.Dominio.Facade
 {
@@ -7,11 +10,8 @@ namespace CalculationSimulatorAPI.Dominio.Facade
         private readonly ILogger _logger;
         private readonly ICalculeCdb _calculatorCDB;
         private readonly ICalculeIR _calculatorIR;
-        private readonly int _numberOfMonths;
-
-        public decimal ResultGross { get; private set; }
-        public decimal ResultNet { get; private set; }
-
+        private readonly int _numberOfMonths;       
+      
         /// <summary>
         /// Inicialização do facade
         /// </summary>
@@ -19,29 +19,25 @@ namespace CalculationSimulatorAPI.Dominio.Facade
         /// <param name="calculeCDB"></param>
         /// <param name="calculeIR"></param>
         /// <param name="logger"></param>
-        public FacadeCalculation(int numberOfMonths, ICalculeCdb calculeCDB, ICalculeIR calculeIR, ILogger logger)
+        public FacadeCalculation(ILogger logger, int numberOfMonths, decimal valueInitial)
         {
             _logger = logger;
             _numberOfMonths = numberOfMonths;
-            _calculatorCDB = calculeCDB;
-            _calculatorIR = calculeIR;           
+            _calculatorCDB = new CalculeCdb(_logger, valueInitial);
+            _calculatorIR = new CalculeIR(_logger, valueInitial);
         }
 
         /// <summary>
         /// Calcular os valores finais do CDB com e sem IR
         /// </summary>
-        public void CalculateValuesCDB()
+        public FacadeCalculationModel CalculateValuesCDB()
         {
             _logger.LogInformation("Calcular valor final CDB e Taxa IR");
 
             var cdbFinalValue = _calculatorCDB.CalculateValueCDB(_numberOfMonths);
             var incomeTaxValue = _calculatorIR.CalculateIncomeTax(cdbFinalValue, _numberOfMonths);
 
-
-            ResultGross = cdbFinalValue;
-            ResultNet = cdbFinalValue - incomeTaxValue;
-            _logger.LogDebug("Lucro Bruto: {ResultGross}", ResultGross);
-            _logger.LogDebug("Lucro Liquido: {ResultNet}", ResultNet);
+           return new(cdbFinalValue, incomeTaxValue);                       
         }
     }
 }

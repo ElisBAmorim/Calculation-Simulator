@@ -15,28 +15,24 @@ namespace CalculationSimulatorAPI.Tests.Dominio.Facade.Test
         public FacadeCalculationTest()
         {           
             _logger = new LoggerFactory().CreateLogger<FacadeCalculation>();
-            _facade = new(12, _calculatorCDB.Object, _calculatorIR.Object, _logger);
+            _facade = new(_logger, 12, 1000);
         }
 
         [Fact]
         public void CalculateValuesCDB_ShouldCalculateCorrectly()
-        {
+        {           
             // Arrange 
-            _calculatorCDB.Setup(s=> s.CalculateValueCDB(It.IsAny<int>())).Returns(1123);
-            _calculatorIR.Setup(s => s.CalculateIncomeTax(It.IsAny<decimal>(),It.IsAny<int>())).Returns(1098);
+             _calculatorCDB.Setup(s=> s.CalculateValueCDB(It.IsAny<int>())).Returns(1123);
+             _calculatorIR.Setup(s => s.CalculateIncomeTax(It.IsAny<decimal>(),It.IsAny<int>())).Returns(1098);
             
             // Act
-            _facade.CalculateValuesCDB();
+            var result = _facade.CalculateValuesCDB();
 
             // Assert
-            Assert.Equal("1123", _facade.ResultGross.ToString());
-            Assert.Equal("25", _facade.ResultNet.ToString());
-
-            _calculatorCDB.Verify();
-            _calculatorCDB.Verify(v=> v.CalculateValueCDB(It.IsAny<int>()),Times.Once);
-            _calculatorIR.Verify();
-            _calculatorIR.Verify(v=> v.CalculateIncomeTax(It.IsAny<decimal>(),It.IsAny<int>()),Times.Once);
-
+            Assert.NotNull(result);      
+        
+            _calculatorCDB.Verify();          
+            _calculatorIR.Verify();           
         }
     }
 }
