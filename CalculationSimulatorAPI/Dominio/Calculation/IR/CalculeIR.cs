@@ -1,18 +1,10 @@
-﻿using CalculationSimulatorAPI.Dominio.Interfaces;
+﻿using CalculationSimulatorAPI.Dominio.Constantes;
+using CalculationSimulatorAPI.Dominio.Interfaces;
 
 namespace CalculationSimulatorAPI.Dominio.Calculation.IR
 {
     public class CalculeIR : ICalculeIR
-    {
-
-        /// <summary>
-        /// Taxas de IR conforme a quantidade de meses
-        /// </summary>
-        protected const decimal TaxRateUp6 = 22.5M / 100;
-        protected const decimal TaxRateUp12 = 20M / 100;
-        protected const decimal TaxRateUp24 = 17.5M / 100;
-        protected const decimal TaxRateThan24 = 15M / 100;
-      
+    {       
         private readonly ILogger _logger;
         private readonly decimal _initialValue;
 
@@ -50,10 +42,10 @@ namespace CalculationSimulatorAPI.Dominio.Calculation.IR
         {
             return months switch
             {
-                <= 6 => TaxRateUp6,
-                <= 12 => TaxRateUp12,
-                <= 24 => TaxRateUp24,
-                _ => TaxRateThan24,
+                <= 6 => Constants.TaxIncome.TaxRateUp6,
+                <= 12 => Constants.TaxIncome.TaxRateUp12,
+                <= 24 => Constants.TaxIncome.TaxRateUp24,
+                _ => Constants.TaxIncome.TaxRateThan24,
             };
         }
 

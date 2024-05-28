@@ -1,13 +1,9 @@
-﻿namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
+﻿using CalculationSimulatorAPI.Dominio.Constantes;
+
+namespace CalculationSimulatorAPI.Dominio.Calculation.CDB
 {
     public abstract class CalculationBase
-    {       
-        /// <summary>
-        /// Taxas CDI e TB
-        /// </summary>
-        protected const decimal RateCDI = 0.9M / 100;
-        protected const decimal RateTB = 108M / 100;        
-       
+    {     
         /// <summary>
         /// Valor inicial para o cálculo
         /// </summary>
@@ -27,9 +23,9 @@
         /// </summary>
         /// <param name="valueInput"> valor de entrada </param>
         /// <returns></returns>
-        public decimal CalculateFinalValue(Decimal valueInput)
+        public decimal CalculateFinalValue(decimal valueInput)
         {            
-            return valueInput * (1 + (RateCDI * RateTB)); 
+            return valueInput * (1 + (Constants.Taxs.CDI * Constants.Taxs.TB)); 
         }
     }
 }
