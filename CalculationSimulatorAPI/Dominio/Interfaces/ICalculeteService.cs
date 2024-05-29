@@ -4,6 +4,6 @@ namespace CalculationSimulatorAPI.Dominio.Interfaces
 {
     public interface ICalculeteService
     {
-        Task<string> CalculeteCDB(CalculateResquestDto calculateResquest);
+        Task<CalculateResponseDto> CalculeteCDB(CalculateResquestDto request, CancellationToken cancellation);
     }
 }

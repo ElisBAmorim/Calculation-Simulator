@@ -13,13 +13,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="9.25.1.91650">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Dominio\Enum\" />
-    <Folder Include="Dominio\Extensions\" />
   </ItemGroup>
 
 </Project>

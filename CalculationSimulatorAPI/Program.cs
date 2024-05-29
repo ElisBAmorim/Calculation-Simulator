@@ -21,7 +21,6 @@ builder.Services.AddValidators();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
    app.UseDeveloperExceptionPage();
@@ -37,4 +36,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

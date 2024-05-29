@@ -1,22 +1,25 @@
 ﻿using CalculationSimulatorAPI.Application.Dtos;
+using CalculationSimulatorAPI.Infrastructure.Validators.Helper;
 using FluentValidation;
 
 namespace CalculationSimulatorAPI.Infrastructure.Validators
 {
-    public class CalculeteValidator : AbstractValidator<CalculateResquestDto>
-    {
-        const string messagePositiveValue = "Only positive values are valid";
-        const string messageNumberMonths = "Invalid value, the number of months must be greater than 1.";
-
+    public  class CalculeteValidator : AbstractValidator<CalculateResquestDto>
+    {        
+        /// <summary>
+        /// Realiza a validação dos valores de request 
+        /// ApplicationValue : Somente valores positivos são válidos.
+        /// NumberOfMonths: o número de meses deve ser maior que 1.
+        /// </summary>
         public CalculeteValidator()
         {
             RuleFor(request => request.ApplicationValue)
                 .GreaterThan(0)
-                .WithMessage(messagePositiveValue);
+                .WithMessage(ValidatorHelper.MessagePositiveValue);
 
             RuleFor(request => request.NumberOfMonths)
                 .GreaterThan(1)
-                .WithMessage(messageNumberMonths);
+                .WithMessage(ValidatorHelper.MessageNumberMonths);
         }
     }
 }
