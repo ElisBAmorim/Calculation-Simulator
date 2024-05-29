@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationSimulatorAPI", "CalculationSimulatorAPI\CalculationSimulatorAPI.csproj", "{17A016A7-4D39-4449-B14F-366F7D19EE8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationSimulatorAPI.Tests", "CalculationSimulatorAPI.Tests\CalculationSimulatorAPI.Tests.csproj", "{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationSimulatorAPI.Tests", "CalculationSimulatorAPI.Tests\CalculationSimulatorAPI.Tests.csproj", "{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
