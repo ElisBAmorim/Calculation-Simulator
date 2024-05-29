@@ -10,7 +10,7 @@ namespace CalculationSimulatorAPI.Tests.Infrastructure
     public class DependencyInjectionTests
     {
         [Fact]
-        public void AddServices_Should_Register_CalculeteService_AsScoped()
+        public void AddServices_ShouldRegisterCalculeteService_Sucesso()
         {
             // Arrange           
             var services = new ServiceCollection();
@@ -23,7 +23,7 @@ namespace CalculationSimulatorAPI.Tests.Infrastructure
         }
 
         [Fact]
-        public void AddSwagger_Should_Configure_Swagger_With_Correct_Info()
+        public void AddSwagger_ShouldConfigureSwagger_Sucesso()
         {
             // Arrange
             var services = new ServiceCollection();
@@ -38,7 +38,7 @@ namespace CalculationSimulatorAPI.Tests.Infrastructure
         }
 
         [Fact]
-        public void AddValidators_Should_Register_Validators_From_Assembly()
+        public void AddValidators_ShouldRegisterValidators_Sucesso()
         {
             // Arrange
             var services = new ServiceCollection();

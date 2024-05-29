@@ -19,7 +19,7 @@ namespace CalculationSimulatorAPI.Tests.Dominio.Facade.Test
         }
 
         [Fact]
-        public void CalculateValuesCDB_ShouldCalculateCorrectly()
+        public void CalculateValuesCDB_ShouldCalculateCorrectly_Sucesso()
         {           
             // Arrange 
              _calculatorCDB.Setup(s=> s.CalculateValueCDB(It.IsAny<int>())).Returns(1123);

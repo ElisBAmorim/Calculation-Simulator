@@ -20,7 +20,7 @@ namespace CalculationSimulatorAPI.Tests.Controller
         }
 
         [Fact]
-        public async Task PostCalculeteCDB_ShouldReturnValues_ReturnSuccess()
+        public async Task PostCalculeteCDB_ShouldReturnValues_ReturnStatusCodeOk()
         {
             //Arrange           
             CalculateResponseDto response = new(1012,1009);
