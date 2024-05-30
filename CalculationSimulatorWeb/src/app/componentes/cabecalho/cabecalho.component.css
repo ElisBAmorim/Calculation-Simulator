@@ -4,15 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
-.cabecalho .logo {
-  width: 46%;
-  padding: 2rem 3rem;
-}
+  .cabecalho .logo {
+    width: 46%;
+    padding: 2rem 3rem;
+    float: left;
+  }
 
 .cabecalho .logo img {
-  width: 90%;
+  width: 10%;
   max-width: 350px;
   margin-bottom: 2rem;
 }
@@ -21,10 +23,11 @@
   width: 40%;
 }
 
-.cabecalho p {
-  font-size: 2rem;
-  color: #6BD1FF;
-}
+  .cabecalho p {
+    font-size: 2rem;
+    color: #6BD1FF;
+    margin-left: 3em;
+  }
 
 @media (max-width: 576px) {
   .cabecalho .logo {
@@ -33,6 +36,15 @@
   .cabecalho p {
     font-size: 1.5rem
   }
+}
+
+.cabecalho .texto-frente {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  color: #6BD1FF;
+  padding: 3rem 5rem;
 }
 
 @media (max-width: 768px) {

@@ -1,5 +1,6 @@
 footer {
   background-image: url(/assets/imagens/fundo-rodape.png);
+  background-size: cover;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -18,14 +19,17 @@ footer {
 .LogoRodape {
   justify-self: center;
   grid-area: LogoRodape;
+  height: 50%;
 }
 
 footer small {
   color: white;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 100px) {
   .cabecalho .logo {
+    width: 16%;
+    height:10%;
     padding: 2rem;
   }
 
