@@ -1,0 +1,43 @@
+.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.botao {
+  margin: 5px;
+  margin-top: 70px;
+  width: 200px;
+}
+
+.calculete-cdb {
+  padding: 2rem 0;
+}
+
+.calculete-cdb form {
+  background: #195295;
+
+  border:groove;
+  border-radius: 20px;
+
+  display:inline-flex;
+  flex-direction: column;
+
+  padding: 4rem;
+}
+
+.calculete-cdb form label {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+  .calculete-cdb form .input {
+    border: none;
+    height: 40px;
+    width: 190px;
+    padding: 0rem 4rem;
+    border-radius: 20px;
+    margin: 0.5rem 0 2rem;
+  }
