@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { CalculateCdbComponent } from './componentes/calculations/calculate-cdb/calculate-cdb.component';
+import { CalculationResultComponent } from './componentes/calculation-result/calculation-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
     RodapeComponent,
-    CalculateCdbComponent
+    CalculateCdbComponent,
+    CalculationResultComponent
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculateCdbComponent implements OnInit {
 
+  //calculateCdb = {
+  //  id: '1',
+  //  applicationValue:'10202',
+  //  numberOfMonths:'tsetre'
+  //}
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  calculateCDB() {
+    alert("calcular");
+  }
+
+  clearFields() {
+    alert("limpar");
+  }
 }
