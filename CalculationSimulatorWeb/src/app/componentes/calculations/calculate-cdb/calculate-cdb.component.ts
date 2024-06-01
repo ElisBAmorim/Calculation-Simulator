@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CalculateServiceService } from '../calculate-service.service';
-import { calculateRequest } from '../calculateRequest';
+import { calculateDto } from '../calculateDto';
+
 
 @Component({
   selector: 'app-calculate-cdb',
@@ -9,7 +10,7 @@ import { calculateRequest } from '../calculateRequest';
 })
 export class CalculateCdbComponent implements OnInit {
 
-  @Input() calculateCdb: calculateRequest = {
+  @Input() calculateCdb: calculateDto = {
 
     applicationValue: '',
     numberOfMonths: ''
@@ -21,7 +22,7 @@ export class CalculateCdbComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calculateCDB(calculate: calculateRequest) {
+  calculateCDB(calculate: calculateDto) {
     alert(calculate.applicationValue);
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { calculateRequest } from './componentes/calculations/calculateRequest';
+import { calculateDto } from './componentes/calculations/calculateDto';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { calculateRequest } from './componentes/calculations/calculateRequest';
 export class AppComponent {
   title = 'simulatorWeb';
 
-  calculateRequest: calculateRequest = {
+  calculateRequest: calculateDto = {
 
     applicationValue: '1000',
     numberOfMonths: '555'
