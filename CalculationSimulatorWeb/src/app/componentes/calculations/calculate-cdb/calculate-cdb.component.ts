@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CalculateServiceService } from '../calculate-service.service';
 import { calculateRequest } from '../calculateRequest';
 
@@ -9,14 +9,14 @@ import { calculateRequest } from '../calculateRequest';
 })
 export class CalculateCdbComponent implements OnInit {
 
-  calculateCdb: calculateRequest = {
+  @Input() calculateCdb: calculateRequest = {
 
     applicationValue: '',
     numberOfMonths: ''
   }
 
 
-  constructor() { }
+  constructor(private CalculateServiceService: CalculateServiceService) { }
 
   ngOnInit(): void {
   }

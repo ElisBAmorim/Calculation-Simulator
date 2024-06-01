@@ -8,6 +8,7 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { CalculateCdbComponent } from './componentes/calculations/calculate-cdb/calculate-cdb.component';
 import { ResultCdbComponent } from './componentes/calculations/result-cdb/result-cdb.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ResultCdbComponent } from './componentes/calculations/result-cdb/result
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
