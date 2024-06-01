@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-result-cdb',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultCdbComponent implements OnInit {
 
+  @Input() result = {
+    grossValue: 'R$:1.212,00',
+    netValue: 'R$:952,33'
+  }
   constructor() { }
 
   ngOnInit(): void {

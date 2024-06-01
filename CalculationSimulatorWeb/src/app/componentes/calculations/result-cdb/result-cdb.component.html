@@ -4,13 +4,11 @@
       <h2>  Resultado CDB </h2>
     </header>
     <div class="titulo">
-      <p>Valor Bruto:</p>
-    </div>
-    <label for="valorBruto">R$ 1000,00</label>
+      <p>Valor Bruto:    <b>{{ result.grossValue }} </b></p>
+    </div>  
     <div class="titulo">
-      <p>Valor Líquido:</p>
+      <p>Valor Líquido:   <b> {{ result.netValue }} </b></p>
     </div>
-    <label for="valueLiquido">R$ 1000,00</label>
     <div class="acoes">
       <button routerLink="/simular-calulo-cdb" class="botao"> Nova Simulação </button>
     </div>

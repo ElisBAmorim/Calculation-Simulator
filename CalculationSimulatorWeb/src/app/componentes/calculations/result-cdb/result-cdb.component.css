@@ -39,7 +39,7 @@ label {
 }
 .titulo {
   color: #074c9d;
-  font-weight: bold;
+ /* font-weight: bold;*/
   font-size: 1.3rem;
   text-align: left;
 }
