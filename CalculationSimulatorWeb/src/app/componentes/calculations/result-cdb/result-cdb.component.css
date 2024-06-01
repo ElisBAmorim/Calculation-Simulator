@@ -1,0 +1,56 @@
+.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+h2 {
+  color: #195295;
+}
+.botao {
+  color: aliceblue;
+  margin: 5px;
+  margin-top: 70px;
+  width: 200px;
+  background: #706f6f;  
+}
+
+.botao:hover {
+  border: 2px solid #13417a;
+  background: #195295;
+  color: aliceblue;   
+}
+
+form {
+  background: #c8c3b4;
+  border: groove;
+  border-radius: 20px;
+  border-color: #1e5ba0;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 4rem;
+}
+
+form label {
+  color: #195295;
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+.input {
+  border: none;
+  height: 40px;
+  width: 190px;
+  padding: 0rem 4rem;
+  border-radius: 20px;
+  margin: 0.5rem 0 2rem;
+}
+
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}

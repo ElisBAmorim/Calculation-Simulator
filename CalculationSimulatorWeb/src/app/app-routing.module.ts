@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalculateCdbComponent } from './componentes/calculations/calculate-cdb/calculate-cdb.component';
-import { CalculationResultComponent } from './componentes/calculation-result/calculation-result.component';
+import { ResultCdbComponent } from './componentes/calculations/result-cdb/result-cdb.component';
 
 const routes: Routes = [
-  //{
-  //  path: '',
-  //  redirectTo: 'simular-calulo-cdb',
-  //  pathMatch: 'full'
-  //},
+  {
+    path: '',
+    redirectTo: 'simular-calulo-cdb',
+    pathMatch: 'full'
+  },
   {
     path: 'simular-calulo-cdb',
     component: CalculateCdbComponent
   },
   {
-    path: 'resultado-calulo-cdb',
-    component: CalculationResultComponent
+    path: 'resultado-cdb',
+    component: ResultCdbComponent
   }
 ];
 
