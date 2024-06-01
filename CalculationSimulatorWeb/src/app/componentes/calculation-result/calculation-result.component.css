@@ -1,0 +1,48 @@
+
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: aqua;
+}
+
+.ff-inter {
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  margin: 21rem 83rem;
+  top: 0;
+  left: 0;
+  color: #195295;
+}
+
+.fr {
+  background: #e9e1dc;
+  border: groove;
+  border-radius: 20px;
+  border-color: #ddd3cc;
+  display: flex;
+  flex-direction: revert-layer;
+  padding: 8.2rem 16rem;
+  margin: 20rem 40rem;
+  position: fixed;
+  top: 0;
+}
+
+.botao {
+  background: #195295;
+  color: #ffffff;
+  padding: 1rem;
+  position: fixed;
+  margin: 36rem 80rem;
+  top: 0;
+  left: 0;
+  border: 2px solid #154580;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+  .botao:hover {
+    border: 2px solid aqua;
+    background: #0e63c7;
+    color: aqua;
+  }

@@ -47,10 +47,10 @@ h2 {
   transition: 0.5s ease;
 }
 
-  .botao:hover {
-    border: 2px solid #27a6f3;    
-    background:bottom;
-  }
+.botao:hover {
+  border: 2px solid #27a6f3;    
+  background:bottom;
+}
 
 @media (min-width: 576px) {
   .container {
