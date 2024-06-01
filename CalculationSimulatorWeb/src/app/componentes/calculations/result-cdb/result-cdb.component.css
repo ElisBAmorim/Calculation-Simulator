@@ -6,35 +6,42 @@
 }
 h2 {
   color: #195295;
+  
 }
 .botao {
   color: aliceblue;
   margin: 5px;
   margin-top: 70px;
   width: 200px;
-  background: #706f6f;  
+  background: #195295;
 }
 
-.botao:hover {
-  border: 2px solid #13417a;
-  background: #195295;
-  color: aliceblue;   
-}
+  .botao:hover {
+    border: 2px solid #1d74db;
+    background: #706f6f;
+    color: #bdd5ee;
+  }
 
 form {
-  background: #c8c3b4;
+  background: #ebeff3;
   border: groove;
   border-radius: 20px;
   border-color: #1e5ba0;
   display: inline-flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 3rem;
 }
 
-form label {
-  color: #195295;
-  font-weight: bold;
+label {
+  color: #ff0000;  
   margin: 0 0 1rem;
+  text-align: center;
+}
+.titulo {
+  color: #074c9d;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: left;
 }
 
 .input {
