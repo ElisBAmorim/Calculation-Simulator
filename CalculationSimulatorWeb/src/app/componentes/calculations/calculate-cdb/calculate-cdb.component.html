@@ -8,15 +8,17 @@
            class="input"
            id="applicationValue"
            name="applicationValue"
-           placeholder="valor em reais (ex: R$ 100,00)"><!--[(ngModel)] = "calculateCdb.applicationValue"-->
+           placeholder="valor em reais (ex: R$ 100,00)"
+            [(ngModel)]="calculateCdb.applicationValue">
     <label for="numberOfMonths">Prazo (meses):</label>
     <input type="number"
            class="input"
            id="numberOfMonths"
            name="numberOfMonths"
-           placeholder="prazo superior à 1 mês "><!--[(ngModel)] = "calculateCdb.numberOfMonths"-->
-    <div class="acoes">
-      <button routerLink="/resultado-cdb" class = "botao"> Calcular </button>     
+           placeholder="prazo superior à 1 mês "
+           [(ngModel)]="calculateCdb.numberOfMonths">
+    <div class="acoes">     
+      <button (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>
     </div>
   </form> 
 </section>
