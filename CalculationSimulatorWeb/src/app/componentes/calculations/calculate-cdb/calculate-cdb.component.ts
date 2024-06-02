@@ -16,6 +16,9 @@ import { valueAboveTwoValidator, valuePositiveValidator } from '../Validator/Fie
 })
 export class CalculateCdbComponent implements OnInit {
 
+  integerValue: number | null = null;
+  isValidInterge: boolean = true;
+
   @Input() calculateCdb: calculateDto = {
 
     applicationValue: '',
@@ -27,6 +30,18 @@ export class CalculateCdbComponent implements OnInit {
   constructor(private service: CalculateServiceService,
     private router: Router,
     private formBuilder: FormBuilder) { }
+
+
+  validateInteger(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+
+    this.isValidInterge = /^-?\d+$/.test(value);
+
+    if (!this.isValidInterge) {
+      this.integerValue = null;
+    }
+  }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
