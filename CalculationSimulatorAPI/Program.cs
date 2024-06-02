@@ -1,4 +1,5 @@
 using CalculationSimulatorAPI.Infra.IoC;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +13,16 @@ builder.Services.AddLogging(log =>
     });
 });
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
 builder.Services.AddServices();
 builder.Services.AddValidators();
+builder.Services.AddRouting(opt=> opt.LowercaseUrls = true);
+builder.Services.AddMvc().AddJsonOptions(option =>
+{
+    option.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 var app = builder.Build();
 
@@ -32,6 +37,8 @@ else
     app.UseHsts().UseHttpsRedirection();
 }
 
+
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
