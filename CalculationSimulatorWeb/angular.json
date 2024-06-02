@@ -67,7 +67,8 @@
               "browserTarget": "simulatorWeb:build:production"
             },
             "development": {
-              "browserTarget": "simulatorWeb:build:development"
+              "browserTarget": "simulatorWeb:build:development",
+              "proxyConfig": "src/proxy.config.js"
             }
           },
           "defaultConfiguration": "development"
