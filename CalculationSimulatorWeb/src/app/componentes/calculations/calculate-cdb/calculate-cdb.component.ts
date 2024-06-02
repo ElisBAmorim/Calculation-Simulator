@@ -7,7 +7,7 @@ import { response } from '../response';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { valuePositiveValidator } from '../Validator/FieldsValidator';
+import { valueAboveTwoValidator, valuePositiveValidator } from '../Validator/FieldsValidator';
 
 @Component({
   selector: 'app-calculate-cdb',
@@ -31,7 +31,7 @@ export class CalculateCdbComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       applicationValue: ['', [Validators.required, valuePositiveValidator]],
-      numberOfMonths: ['', [Validators.required]],
+      numberOfMonths: ['', [Validators.required, valueAboveTwoValidator]],
     });
   }
 
