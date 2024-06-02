@@ -42,5 +42,8 @@
     border-radius: 20px;
     margin: 0.5rem 0 2rem;
   }
-
+.valid {
+  color: red;
+  margin: -1.70rem 0 1.5rem;
+}
 
