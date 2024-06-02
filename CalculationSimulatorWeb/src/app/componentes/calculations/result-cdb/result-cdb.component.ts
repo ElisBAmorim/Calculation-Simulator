@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { response } from '../response';
 
 @Component({
   selector: 'app-result-cdb',
@@ -7,13 +9,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResultCdbComponent implements OnInit {
 
-  @Input() result = {
+  @Input() resultEx: response = {
     grossValue: 'R$:1.212,00',
     netValue: 'R$:952,33'
   }
-  constructor() { }
+
+  @Input() result: response = {
+    grossValue: 'R$:',
+    netValue: 'R$:'
+  }
+  constructor(private _router: ActivatedRoute) {
+
+  }
 
   ngOnInit(): void {
+
+    this.result.grossValue += (this._router.snapshot.paramMap.get('grossValue'));
+    this.result.netValue += (this._router.snapshot.paramMap.get('netValue'));
   }
 
 }

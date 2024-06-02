@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CalculateServiceService } from '../calculate-service.service';
 import { calculateDto } from '../calculateDto';
 import { requestImpl } from '../requestImpl';
@@ -19,26 +20,28 @@ export class CalculateCdbComponent implements OnInit {
   }
 
 
-  constructor(private service: CalculateServiceService) { }
+  constructor(private service: CalculateServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
 
-  calculateCDB(calculate: calculateDto) {
-    alert("Entrou -> : " +calculate.applicationValue);
+  calculateCDB(calculate: calculateDto) {  
     const reqImpl = new requestImpl(calculate.numberOfMonths, calculate.applicationValue);
     const req = reqImpl.toRequest();  
 
-    this.service.post(req).subscribe((resp: response) => {
-      alert("res -> grossValue: " + resp.grossValue + " netValue:" + resp.netValue);
-
-    });
-  
-
+    this.service.post(req).subscribe((resp: response) => {     
+      this.router.navigate(['/resultado-cdb', resp.grossValue, resp.netValue]);
+    });  
   }
 
-  clearFields() {
-    alert("limpar");
+  responseCdb: response = {
+    grossValue: '1525',
+    netValue: '666'
+  }
+
+  testeFields(responseResult: response) {  
+    this.router.navigate(['/resultado-cdb', responseResult.grossValue, responseResult.netValue]);
   }
 }

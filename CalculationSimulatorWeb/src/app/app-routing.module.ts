@@ -4,19 +4,19 @@ import { CalculateCdbComponent } from './componentes/calculations/calculate-cdb/
 import { ResultCdbComponent } from './componentes/calculations/result-cdb/result-cdb.component';
 
 const routes: Routes = [
-  //{
-  //  path: '',
-  //  redirectTo: 'simular-calulo-cdb',
-  //  pathMatch: 'full'
-  //},
-  //{
-  //  path: 'simular-calulo-cdb',
-  //  component: CalculateCdbComponent
-  //},
-  //{
-  //  path: 'resultado-cdb',
-  //  component: ResultCdbComponent
-  //}
+  {
+    path: '',
+    redirectTo: 'simular-calulo-cdb',
+    pathMatch: 'full'
+  },
+  {
+    path: 'simular-calulo-cdb',
+    component: CalculateCdbComponent
+  },
+  {
+    path: 'resultado-cdb/:grossValue/:netValue',
+    component: ResultCdbComponent
+  }
 ];
 
 @NgModule({

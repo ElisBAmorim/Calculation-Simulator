@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { calculateDto } from './componentes/calculations/calculateDto';
+import { response } from './componentes/calculations/response';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
 
   calculateRequest: calculateDto = {
 
-    applicationValue: '1000',
-    numberOfMonths: '6'
+    applicationValue: '',
+    numberOfMonths: ''
   }
+
 }

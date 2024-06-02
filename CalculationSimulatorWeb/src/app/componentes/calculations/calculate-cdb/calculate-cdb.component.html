@@ -9,7 +9,7 @@
            id="applicationValue"
            name="applicationValue"
            placeholder="valor em reais (ex: R$ 100,00)"
-            [(ngModel)]="calculateCdb.applicationValue">
+           [(ngModel)]="calculateCdb.applicationValue">
     <label for="numberOfMonths">Prazo (meses):</label>
     <input type="number"
            class="input"
@@ -17,8 +17,9 @@
            name="numberOfMonths"
            placeholder="prazo superior à 1 mês "
            [(ngModel)]="calculateCdb.numberOfMonths">
-    <div class="acoes">     
+    <div class="acoes">
       <button (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>
+      <button (click)="testeFields(responseCdb)" class="botao">result</button>
     </div>
-  </form> 
+  </form>
 </section>
