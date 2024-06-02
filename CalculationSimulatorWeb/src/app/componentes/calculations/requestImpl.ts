@@ -3,17 +3,21 @@ import { StringToDecimalPipe } from "../../util/StringToDecimalPipe";
 import { request } from "./request";
 
 export class requestImpl implements request {
-  numberOfMonths!: DecimalPipe;
-  applicationValue!: DecimalPipe;
+  numberOfMonths!: number;
+  applicationValue!: number;
 
 
   constructor(numberOfMonths: string, applicationValue: string) {
-
+    this.numberOfMonths = this.getValueDecimal(numberOfMonths);
+    this.applicationValue = this.getValueDecimal(applicationValue);
   }
 
-  getPrecoDecimal(value:string): number {
+  getValueDecimal(value:string): number {
     const precoDecimal = new StringToDecimalPipe().transform(value);
     return precoDecimal;
   }
 
+  toRequest(): request {
+  return this;
+  }
 }

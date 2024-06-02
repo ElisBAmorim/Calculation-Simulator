@@ -13,6 +13,6 @@ export class AppComponent {
   calculateRequest: calculateDto = {
 
     applicationValue: '1000',
-    numberOfMonths: '555'
+    numberOfMonths: '6'
   }
 }

@@ -1,6 +1,6 @@
 import { DecimalPipe } from "@angular/common";
 
 export interface request {
-  numberOfMonths: DecimalPipe;
-  applicationValue: DecimalPipe;
+  numberOfMonths: number;
+  applicationValue: number;
   }
