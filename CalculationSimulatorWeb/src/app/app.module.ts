@@ -9,6 +9,7 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { CalculateCdbComponent } from './componentes/calculations/calculate-cdb/calculate-cdb.component';
 import { ResultCdbComponent } from './componentes/calculations/result-cdb/result-cdb.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

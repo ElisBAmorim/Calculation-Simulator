@@ -4,7 +4,10 @@ import { CalculateServiceService } from '../calculate-service.service';
 import { calculateDto } from '../calculateDto';
 import { requestImpl } from '../requestImpl';
 import { response } from '../response';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { valuePositiveValidator } from '../Validator/FieldsValidator';
 
 @Component({
   selector: 'app-calculate-cdb',
@@ -19,11 +22,17 @@ export class CalculateCdbComponent implements OnInit {
     numberOfMonths: ''
   }
 
+  formulario!: FormGroup;
 
   constructor(private service: CalculateServiceService,
-    private router: Router) { }
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formulario = this.formBuilder.group({
+      applicationValue: ['', [Validators.required, valuePositiveValidator]],
+      numberOfMonths: ['', [Validators.required]],
+    });
   }
 
 
