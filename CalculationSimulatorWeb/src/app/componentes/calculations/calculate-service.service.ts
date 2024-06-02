@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { request } from './request';
 import { response } from './response';
+import { TagContentType } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculateServiceService {
 
-  private readonly API = 'http://localhost:8080/v1/Calculate/CDB'
+  private readonly API = 'v1/calculate/cdb'
   constructor(private http: HttpClient) { }
 
 
@@ -18,28 +19,18 @@ export class CalculateServiceService {
     return this.http.post<response>(this.API, request);
   }
 
-  post(request: request): Observable<any>{
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+  post(request: request): Observable<response>{  
 
     const raw = JSON.stringify({
       "applicationValue": request.applicationValue,
       "numberOfMonths": request.numberOfMonths
     });
 
-    //const requestOptions = {
-    //  method: "POST",
-    //  headers: myHeaders,
-    //  body: raw,
-    //  redirect: "follow"
-    //};
     alert("Service -> valueRaw: " + raw);
-    const resp = this.http.post<response>(this.API, raw, { responseType: "json"});
-    return resp;
-    //fetch("https://localhost:8080/v1/Calculate/CDB", requestOptions)
-    //  .then((response) => response.text())
-    //  .then((result) => console.log(result))
-    //  .catch((error) => console.error(error));
+    const resp = this.http.post<response>(this.API, raw, { headers: { "Content-Type": "application/json" }, responseType: "json" });
+
+    alert("REsponde -> value: " + resp);
+    return resp;  
   }
 
   //post2() {

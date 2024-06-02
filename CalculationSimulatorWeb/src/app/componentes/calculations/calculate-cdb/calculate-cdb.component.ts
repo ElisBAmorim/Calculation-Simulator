@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CalculateServiceService } from '../calculate-service.service';
 import { calculateDto } from '../calculateDto';
 import { requestImpl } from '../requestImpl';
+import { response } from '../response';
 
 
 @Component({
@@ -27,14 +28,13 @@ export class CalculateCdbComponent implements OnInit {
   calculateCDB(calculate: calculateDto) {
     alert("Entrou -> : " +calculate.applicationValue);
     const reqImpl = new requestImpl(calculate.numberOfMonths, calculate.applicationValue);
-    const req = reqImpl.toRequest();
-    //const retorno = this.service.postCdb(req).subscribe();
-    //alert("Saiu -> : " + calculate.applicationValue);
+    const req = reqImpl.toRequest();  
 
-    /* const retorno = this.service.post(req).subscribe();*/
+    this.service.post(req).subscribe((resp: response) => {
+      alert("res -> grossValue: " + resp.grossValue + " netValue:" + resp.netValue);
 
-    this.service.postXhr(req);
-    alert("Saiu 2  -> : " + calculate.applicationValue);
+    });
+  
 
   }
 
