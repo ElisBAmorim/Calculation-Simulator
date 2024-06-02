@@ -32,7 +32,7 @@
       O prazo deve ser superior a 1.
     </div>
     <div class="acoes">
-      <button (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>
+      <button [disabled]="!formulario.valid" (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>
       <button (click)="testeFields(responseCdb)" class="botao">result</button>
     </div>
   </form>

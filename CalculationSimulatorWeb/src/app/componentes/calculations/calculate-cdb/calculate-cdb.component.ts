@@ -36,7 +36,8 @@ export class CalculateCdbComponent implements OnInit {
   }
 
 
-  calculateCDB(calculate: calculateDto) {  
+  calculateCDB(calculate: calculateDto) {
+    alert("Entrou");
     const reqImpl = new requestImpl(calculate.numberOfMonths, calculate.applicationValue);
     const req = reqImpl.toRequest();  
 

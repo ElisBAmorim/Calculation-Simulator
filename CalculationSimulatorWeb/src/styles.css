@@ -52,8 +52,12 @@ h2 {
   background:bottom;
 }
 
-@media (min-width: 576px) {
-  .container {
+  .botao:disabled {
+    background: #9a9392;
+  }
+
+  @media (min-width: 576px) {
+    .container {
       width: 540px;
   }
 }
