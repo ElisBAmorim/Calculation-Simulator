@@ -23,9 +23,9 @@
            id="numberOfMonths"
            name="numberOfMonths"
            formControlName="numberOfMonths"
-           (input)="validateInteger($event)"
+           (keydown)="validateInteger($event)"
            placeholder="prazo superior à 1 mês "
-           [(ngModel)]="calculateCdb.numberOfMonths">
+           [(ngModel)]="calculateCdb.numberOfMonths">   
     <div class="valid" *ngIf="!isValidInterge">
       Valor invalido!
     </div>
@@ -36,8 +36,7 @@
       O prazo deve ser superior a 1.
     </div>
     <div class="acoes">
-      <button [disabled]="!formulario.valid" (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>
-      <button (click)="testeFields(responseCdb)" class="botao">result</button>
+      <button [disabled]="!formulario.valid" (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>    
     </div>
   </form>
 </section>

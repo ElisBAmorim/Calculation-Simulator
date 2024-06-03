@@ -26,10 +26,8 @@ export class CalculateServiceService {
       "numberOfMonths": request.numberOfMonths
     });
 
-    alert("Service -> valueRaw: " + raw);
     const resp = this.http.post<response>(this.API, raw, { headers: { "Content-Type": "application/json" }, responseType: "json" });
-
-    alert("REsponde -> value: " + resp);
+    
     return resp;  
   }
 

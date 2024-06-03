@@ -32,9 +32,8 @@ export class CalculateCdbComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
 
-  validateInteger(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const value = input.value;
+  validateInteger(event: KeyboardEvent): void {
+    const value = event['key'];
 
     this.isValidInterge = /^-?\d+$/.test(value);
 
@@ -42,6 +41,7 @@ export class CalculateCdbComponent implements OnInit {
       this.integerValue = null;
     }
   }
+    
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -51,8 +51,7 @@ export class CalculateCdbComponent implements OnInit {
   }
 
 
-  calculateCDB(calculate: calculateDto) {
-    alert("Entrou");
+  calculateCDB(calculate: calculateDto) {  
     const reqImpl = new requestImpl(calculate.numberOfMonths, calculate.applicationValue);
     const req = reqImpl.toRequest();  
 
@@ -65,8 +64,5 @@ export class CalculateCdbComponent implements OnInit {
     grossValue: '1525',
     netValue: '666'
   }
-
-  testeFields(responseResult: response) {  
-    this.router.navigate(['/resultado-cdb', responseResult.grossValue, responseResult.netValue]);
-  }
+  
 }

@@ -8,16 +8,20 @@ export class requestImpl implements request {
 
 
   constructor(numberOfMonths: string, applicationValue: string) {
-    this.numberOfMonths = this.getValueDecimal(numberOfMonths);
-    this.applicationValue = this.getValueDecimal(applicationValue);
+    this.numberOfMonths = this.getValueMes(numberOfMonths); 
+    
+    this.applicationValue = this.getValueMoney(applicationValue);
   }
 
-  getValueDecimal(value:string): number {
-    const precoDecimal = new StringToDecimalPipe().transform(value);
-    return precoDecimal;
+  getValueMoney(value:string): number { 
+    return parseFloat(value);
+  }
+  getValueMes(value: string): number {
+    return parseInt(value);
   }
 
   toRequest(): request {
   return this;
   }
 }
+

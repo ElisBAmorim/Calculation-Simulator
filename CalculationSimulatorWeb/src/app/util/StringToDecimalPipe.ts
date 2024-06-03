@@ -12,4 +12,20 @@ export class StringToDecimalPipe implements PipeTransform {
     // Converta o valor formatado de volta para um número decimal
     return parseFloat(cleanedValue);
   }
+
+  transformMoney(value: string): number {
+   
+    const cleanedValue = value.replace(',', '.');
+
+    // Converta o valor formatado de volta para um número decimal
+    return parseFloat(cleanedValue);
+  }
+
+  transformInterge(value: string): number {
+
+    const cleanedValue = value.replace(',', '');
+
+    // Converta o valor formatado de volta para um número decimal
+    return parseFloat(cleanedValue);
+  }
 }
