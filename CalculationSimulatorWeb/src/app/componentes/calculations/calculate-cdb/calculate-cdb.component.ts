@@ -13,9 +13,10 @@ import { valueAboveTwoValidator, valuePositiveValidator } from '../Validator/Fie
   styleUrls: ['./calculate-cdb.component.css']
 })
 export class CalculateCdbComponent implements OnInit {
-
-  integerValue: number | null = null;
+   
   isValidInterge: boolean = true;
+  isValidVirgula: boolean = true;
+
 
   @Input() calculateCdb: calculateDto = {
 
@@ -29,15 +30,18 @@ export class CalculateCdbComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder) { }
 
-
-  validateInteger(event: KeyboardEvent): void {
+  
+  validateVirgula(event: KeyboardEvent): void {
     const value = event['key'];
+    
+    this.isValidVirgula = /^-?\d+$/.test(value);
+  }
+
+  validateInteger(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
 
     this.isValidInterge = /^-?\d+$/.test(value);
-
-    if (!this.isValidInterge) {
-      this.integerValue = null;
-    }
   }
     
 

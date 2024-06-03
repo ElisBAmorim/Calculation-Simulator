@@ -6,11 +6,11 @@ import { ResultCdbComponent } from './componentes/calculations/result-cdb/result
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'simular-calulo-cdb',
+    redirectTo: 'simular-calculo-cdb',
     pathMatch: 'full'
   },
   {
-    path: 'simular-calulo-cdb',
+    path: 'simular-calculo-cdb',
     component: CalculateCdbComponent
   },
   {
