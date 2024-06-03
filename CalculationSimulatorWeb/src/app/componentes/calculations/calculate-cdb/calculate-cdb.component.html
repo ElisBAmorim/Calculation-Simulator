@@ -1,0 +1,42 @@
+<section class="container calculete-cdb ff-inter">
+  <form [formGroup]="formulario">
+    <header class="header">
+      <h2>  Calcular CDB </h2>
+    </header>
+    <label for="applicationValue">Valor da aplicação:</label>
+    <input type="number"
+           class="input"
+           id="applicationValue"
+           name="applicationValue"
+           formControlName="applicationValue"          
+           placeholder="valor em reais (ex: R$ 100,00)"
+           [(ngModel)]="calculateCdb.applicationValue">
+    <div class="valid" *ngIf="formulario.get('applicationValue')?.errors?.['required'] && formulario.get('applicationValue')?.touched ">
+      Campo obrigatório!
+    </div>
+    <div class="valid" *ngIf="formulario.get('applicationValue')?.errors?.['positive'] && formulario.get('applicationValue')?.touched ">
+      Apenas valores positivos!
+    </div>
+    <label for="numberOfMonths">Prazo (meses):</label>
+    <input type="number"
+           class="input"
+           id="numberOfMonths"
+           name="numberOfMonths"
+           formControlName="numberOfMonths"
+           (keydown)="validateInteger($event)"
+           placeholder="prazo superior à 1 mês "
+           [(ngModel)]="calculateCdb.numberOfMonths">   
+    <div class="valid" *ngIf="!isValidInterge">
+      Valor invalido!
+    </div>
+    <div class="valid" *ngIf="formulario.get('numberOfMonths')?.errors?.['required'] && formulario.get('numberOfMonths')?.touched">
+      Campo obrigatório!
+    </div>
+    <div class="valid" *ngIf="formulario.get('numberOfMonths')?.errors?.['aboveTwo'] && formulario.get('numberOfMonths')?.touched">
+      O prazo deve ser superior a 1.
+    </div>
+    <div class="acoes">
+      <button [disabled]="!formulario.valid" (click)="calculateCDB(calculateCdb)" class="botao">Simular</button>    
+    </div>
+  </form>
+</section>

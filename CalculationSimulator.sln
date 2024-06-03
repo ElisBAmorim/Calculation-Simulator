@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationSimulatorAPI", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationSimulatorAPI.Tests", "CalculationSimulatorAPI.Tests\CalculationSimulatorAPI.Tests.csproj", "{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "CalculationSimulatorWeb", "CalculationSimulatorWeb\CalculationSimulatorWeb.esproj", "{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FBB3ABA-14E0-4416-80E8-2BC723DA2044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

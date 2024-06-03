@@ -1,0 +1,5 @@
+main {
+  background: url(/assets/imagens/fundo.png);
+  background-size: cover;
+  min-height: 70vh;
+}
