@@ -1,6 +1,4 @@
-import { DecimalPipe } from "@angular/common";
-import { StringToDecimalPipe } from "../../util/StringToDecimalPipe";
-import { request } from "./request";
+import { request } from "../request";
 
 export class requestImpl implements request {
   numberOfMonths!: number;

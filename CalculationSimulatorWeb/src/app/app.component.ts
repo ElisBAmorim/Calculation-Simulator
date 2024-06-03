@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { calculateDto } from './componentes/calculations/calculateDto';
-import { response } from './componentes/calculations/response';
+import { calculateDto } from './componentes/calculations/Dtos/calculateDto';
+import { response } from './componentes/calculations/Interface/response';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({

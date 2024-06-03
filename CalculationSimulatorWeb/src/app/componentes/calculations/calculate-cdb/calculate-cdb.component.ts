@@ -1,12 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CalculateServiceService } from '../calculate-service.service';
-import { calculateDto } from '../calculateDto';
-import { requestImpl } from '../requestImpl';
-import { response } from '../response';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { calculateDto } from '../Dtos/calculateDto';
+import { requestImpl } from '../Interface/Impl/requestImpl';
+import { response } from '../Interface/response';
+import { CalculateServiceService } from '../Service/calculate-service.service';
 import { valueAboveTwoValidator, valuePositiveValidator } from '../Validator/FieldsValidator';
 
 @Component({
@@ -58,11 +56,6 @@ export class CalculateCdbComponent implements OnInit {
     this.service.post(req).subscribe((resp: response) => {     
       this.router.navigate(['/resultado-cdb', resp.grossValue, resp.netValue]);
     });  
-  }
-
-  responseCdb: response = {
-    grossValue: '1525',
-    netValue: '666'
   }
   
 }

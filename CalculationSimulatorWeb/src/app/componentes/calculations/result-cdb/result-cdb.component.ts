@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { response } from '../response';
+import { response } from '../Interface/response';
 
 @Component({
   selector: 'app-result-cdb',
