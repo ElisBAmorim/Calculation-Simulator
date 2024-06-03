@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationSimulatorAPI.Tes
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "CalculationSimulatorWeb", "CalculationSimulatorWeb\CalculationSimulatorWeb.esproj", "{1B9A4C0A-BE2A-467F-867A-52CC50EDC16E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DEE628D-FE16-4EA4-AA34-6D2A7B838269}"
+	ProjectSection(SolutionItems) = preProject
+		readme.mk = readme.mk
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
